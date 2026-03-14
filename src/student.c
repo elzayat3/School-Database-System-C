@@ -1,4 +1,4 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "student.h"
-#include "utils.h"
+#include "../include/student.h"
+#include "../include/utils.h"
