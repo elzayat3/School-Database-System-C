@@ -65,6 +65,6 @@ comp_t string_comp(const char* s1, const char* s2);
  * @param[in] s    Array of string pointers.
  * @param[in] size Number of strings in the array.
  */
-void print_arrOfSring(const char** s, int size);
+void print_arrOfString(const char** s, int size);
 
 #endif
