@@ -1,15 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <windows.h>
 #include "../include/utils.h"
 
 
 void print_string(const char*s)
 {
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
     int i=0;
     for(; s[i]; i++)
     {
         printf("%c",s[i]);
     }
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
     printf("\n");
 }
 void scan_string(char*s)
@@ -25,7 +28,7 @@ void scan_string(char*s)
     s[i]=0;
 }
 
-comp_t string_comp(char*s1,char*s2)
+comp_t string_comp(const char* s1, const char* s2)
 {
     comp_t r=same;
     int i=0;
@@ -39,7 +42,7 @@ comp_t string_comp(char*s1,char*s2)
     }
     return r;
 }
-void print_arrOfSring(char**s,int size)
+void print_arrOfSring(const char** s, int size)
 {
     int i;
     for(i=0;i<size;i++)
