@@ -11,6 +11,15 @@
  *
  * @author Abdelrahman Elzayat
  */
+ 
+ /**
+ * @def MAX_STUDENTS
+ * @brief Maximum number of students supported by the system.
+ *
+ * This macro defines the maximum size of the student array
+ * used by the School Database system.
+ */
+#define MAX_STUDENTS 200
 
 /**
  * @struct per_t

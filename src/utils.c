@@ -5,21 +5,21 @@
 
 void print_string(const char *s)
 {
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
 
     for (int i = 0; s[i]; i++)
     {
         printf("%c", s[i]);
     }
 
-   SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+   SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
     printf("\n");
 }
 
 void scan_string(char *s)
 {
     int i = 0;
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
     scanf(" %c", &s[i]);
 
     while (s[i] != '\n')
