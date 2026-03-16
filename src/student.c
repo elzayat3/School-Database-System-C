@@ -7,7 +7,7 @@
 
 void print_stdStruct(std_t* s)
 {
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
 	printf("the name is : ");
     print_string(s->name);
     printf("the age is : %d\n",s->age);
@@ -26,11 +26,11 @@ void print_stdStruct(std_t* s)
     {
         printf("he has no brothers \n");
     }
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
 }
 void scanOf_stdStruct(std_t* s)
 {
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
 	int x=0;
     printf("enter the name : ");
     scan_string(s->name);
@@ -53,28 +53,28 @@ void scanOf_stdStruct(std_t* s)
         scan_arrOfpersonStruct(s->brothers,s->number_OfBrothers);
     }
     else {;}
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
 }
 void scan_personStruct(per_t* p)
 {
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
 	printf("enter the person name : ");
     scan_string(p->name);
     printf("enter the person phone number : ");
     scan_string(p->phone);
     printf("enter the person age : ");
     scanf("%d",&(p->age));
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
 }
 void print_personStruct(per_t* p)
 {
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
 	printf("the person name is : ");
     print_string(p->name);
     printf("the person phone number is : ");
     print_string(p->phone);
     printf("the person age is : %d \n",p->age);
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
 }
 void print_arrOfstdStruct(std_t* s, int size)
 {

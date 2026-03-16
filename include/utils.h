@@ -10,6 +10,35 @@
  *
  * @author Abdelrahman Elzayat
  */
+ 
+ /**
+ * @def RED
+ * @brief Console text color code for red.
+ *
+ * This macro defines the color value used with
+ * SetConsoleTextAttribute to display red text
+ * in the Windows console.
+ */
+#define RED 4
+
+/**
+ * @def YELLOW
+ * @brief Console text color code for yellow.
+ *
+ * This macro defines the value used with
+ * SetConsoleTextAttribute to display yellow text
+ * in the Windows console.
+ */
+#define YELLOW 14
+
+/**
+ * @def NORMAL
+ * @brief Default console text color.
+ *
+ * This macro defines the default color used to reset
+ * the console text color after applying other colors.
+ */
+#define NORMAL 7
 
 /**
  * @enum comp_t
