@@ -53,3 +53,38 @@ void print_arrOfSring(const char **s, int size)
         print_string(s[i]);
     }
 }
+int string_compare_char(const char *s1, const char *s2)
+{
+    int i = 0;
+    int c = 0;
+    char a, b;
+
+    while ((s1[i] || s2[i]) && (c == 0))
+    {
+        a = s1[i];
+        b = s2[i];
+
+        if (a >= 'A' && a <= 'Z')
+		{
+			a = a - 'A' + 'a';
+		}
+		else{;}
+        if (b >= 'A' && b <= 'Z')
+		{
+			b = b - 'A' + 'a';
+		}
+		else{;}
+		
+        if (a > b)
+		{
+			c = 1;
+		}  
+        else if (b > a)
+		{
+			c = 2;
+		}
+		else{;}
+        i++;
+    }
+    return c;
+}
