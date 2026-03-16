@@ -51,17 +51,17 @@ void print_student_by_number(int student_number);
 void print_student_by_name(char *name);
 
 /**
- * @brief Sort students by age using Bubble Sort.
+ * @brief Sort students by age using optimized Bubble Sort.
  *
  * This function sorts the student database in ascending order
- * based on the student age field.
+ * based on the age field of each student.
  *
- * The sorting algorithm used is Bubble Sort, which repeatedly
- * compares adjacent students and swaps them if they are in
- * the wrong order.
+ * The algorithm used is Bubble Sort with an optimization that
+ * stops the sorting process early if no swaps occur during a pass,
+ * indicating that the array is already sorted.
  *
- * @note The function modifies the order of students in the
- *       global student array.
+ * @note The function modifies the order of students inside
+ *       the global student array.
  */
 void sort_students_by_age(void);
 
