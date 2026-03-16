@@ -75,3 +75,21 @@ void print_student_by_name(char *name)
 	}
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
 }
+void sort_students_by_age(void)
+{
+    int i, j;
+    std_t temp;
+
+    for (i = 0; i < student_count - 1; i++)
+    {
+        for (j = 0; j < student_count - i - 1; j++)
+        {
+            if (students[j].age > students[j + 1].age)
+            {
+                temp = students[j];
+                students[j] = students[j + 1];
+                students[j + 1] = temp;
+            }
+        }
+    }
+}
