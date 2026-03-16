@@ -96,4 +96,22 @@ comp_t string_comp(const char* s1, const char* s2);
  */
 void print_arrOfString(const char** s, int size);
 
+/**
+ * @brief Compare two strings alphabetically ignoring case.
+ *
+ * This function compares two null-terminated strings in a
+ * case-insensitive manner (i.e., 'A' is treated the same as 'a').
+ * The comparison is performed character by character until a
+ * difference is found or both strings terminate.
+ *
+ * @param[in] s1 Pointer to the first string.
+ * @param[in] s2 Pointer to the second string.
+ *
+ * @return int
+ * @retval 0 The two strings are equal.
+ * @retval 1 The first string is greater than the second string.
+ * @retval 2 The second string is greater than the first string.
+ */
+int string_compare_char(const char *s1, const char *s2);
+
 #endif
