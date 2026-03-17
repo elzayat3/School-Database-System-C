@@ -122,3 +122,57 @@ void sort_students_by_name(void)
         }
     }
 }
+void sort_students_by_grade(void)
+{
+    int i, j;
+    int swapped = 1;
+    std_t temp;
+
+    for (i = 0; (i < student_count - 1) && (1==swapped); i++)
+    {
+        swapped = 0;
+
+        for (j = 0; j < student_count - i - 1; j++)
+        {
+            char g1 = students[j].grade;
+            char g2 = students[j + 1].grade;
+
+            if (g1 >= 'a' && g1 <= 'z')
+			{
+				g1 = g1 - 'a' + 'A';
+			}
+			else{;}
+          
+            if (g2 >= 'a' && g2 <= 'z')
+			{
+				g2 = g2 - 'a' + 'A';
+			}
+			else{;}  
+
+            if (g1 > g2)
+            {
+                temp = students[j];
+                students[j] = students[j + 1];
+                students[j + 1] = temp;
+
+                swapped = 1;
+            }
+        }
+    }
+}
+void call_student(int student_number)
+{
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
+    if (student_number < 1 || student_number > student_count)
+    {
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), RED);
+        printf("Invalid student number\n");
+    }
+	else
+	{
+		  printf("Calling %s's father at: %s\n",
+           students[student_number - 1].name,
+           students[student_number - 1].father.phone);
+	}
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
+}
