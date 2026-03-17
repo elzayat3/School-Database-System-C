@@ -134,7 +134,22 @@ void sort_students_by_grade(void)
 
         for (j = 0; j < student_count - i - 1; j++)
         {
-            if (students[j].grade > students[j + 1].grade)
+            char g1 = students[j].grade;
+            char g2 = students[j + 1].grade;
+
+            if (g1 >= 'a' && g1 <= 'z')
+			{
+				g1 = g1 - 'a' + 'A';
+			}
+			else{;}
+          
+            if (g2 >= 'a' && g2 <= 'z')
+			{
+				g2 = g2 - 'a' + 'A';
+			}
+			else{;}  
+
+            if (g1 > g2)
             {
                 temp = students[j];
                 students[j] = students[j + 1];

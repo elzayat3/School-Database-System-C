@@ -82,15 +82,12 @@ void sort_students_by_name(void);
  * @brief Sort students by grade (A to F).
  *
  * This function sorts the student database in ascending
- * order based on the grade field, where 'A' is the highest
- * grade and 'F' is the lowest.
+ * order based on the grade field.
  *
- * The sorting algorithm used is Bubble Sort with an
- * early-exit optimization to improve performance if
- * the array becomes sorted early.
+ * Grades are converted to uppercase during comparison
+ * to ensure correct ordering regardless of input case.
  *
- * @note The function modifies the order of students
- *       inside the global student array.
+ * Uses optimized Bubble Sort with early exit.
  */
 void sort_students_by_grade(void);
 
