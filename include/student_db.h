@@ -90,5 +90,18 @@ void sort_students_by_name(void);
  * Uses optimized Bubble Sort with early exit.
  */
 void sort_students_by_grade(void);
+/**
+ * @brief Simulate calling a student's father.
+ *
+ * This function prints the father's phone number
+ * of a given student based on the student number.
+ *
+ * The student number starts from 1 (not 0).
+ *
+ * @param[in] student_number Student number (1-based index).
+ *
+ * @note Prints an error message if the student number is invalid.
+ */
+void call_student(int student_number);
 
 #endif

@@ -160,3 +160,19 @@ void sort_students_by_grade(void)
         }
     }
 }
+void call_student(int student_number)
+{
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
+    if (student_number < 1 || student_number > student_count)
+    {
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), RED);
+        printf("Invalid student number\n");
+    }
+	else
+	{
+		  printf("Calling %s's father at: %s\n",
+           students[student_number - 1].name,
+           students[student_number - 1].father.phone);
+	}
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
+}
