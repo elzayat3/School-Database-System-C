@@ -122,3 +122,26 @@ void sort_students_by_name(void)
         }
     }
 }
+void sort_students_by_grade(void)
+{
+    int i, j;
+    int swapped = 1;
+    std_t temp;
+
+    for (i = 0; (i < student_count - 1) && (1==swapped); i++)
+    {
+        swapped = 0;
+
+        for (j = 0; j < student_count - i - 1; j++)
+        {
+            if (students[j].grade > students[j + 1].grade)
+            {
+                temp = students[j];
+                students[j] = students[j + 1];
+                students[j + 1] = temp;
+
+                swapped = 1;
+            }
+        }
+    }
+}
