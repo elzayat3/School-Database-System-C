@@ -81,6 +81,7 @@ void print_arrOfstdStruct(std_t* s, int size)
 	int i=0;
     for(; i<size; i++)
     {
+		printf("========== Student %d ==========\n", i+1);
         print_stdStruct(&s[i]);
         printf("\n");
     }

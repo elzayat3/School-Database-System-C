@@ -45,17 +45,20 @@ void print_all_students(void)
 }
 void print_student_by_number(int student_number)
 {
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
+
     if (student_number < 1 || student_number > student_count)
     {
-		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), RED);
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), RED);
         printf("Invalid student number\n");
     }
-	else
-	{
-		print_stdStruct(&students[student_number - 1]);
-	}
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
+    else
+    {
+        printf("========== Student %d ==========\n", student_number);
+        print_stdStruct(&students[student_number - 1]);
+    }
+
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
 }
 void print_student_by_name(char *name)
 {
@@ -71,6 +74,7 @@ void print_student_by_name(char *name)
     }
 	else 
 	{
+		printf("========== Student %d ==========\n", index+1);
 		print_stdStruct(&students[index]);
 	}
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
