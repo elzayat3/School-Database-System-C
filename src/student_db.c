@@ -255,3 +255,125 @@ void delete_student_by_name(char *name)
 	}
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
 }
+void update_student_name(std_t *s)
+{
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
+    printf("Enter new name: ");
+    scan_string(s->name);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
+}
+void update_student_age(std_t *s)
+{
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
+    printf("Enter new age: ");
+    scanf("%d", &s->age);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
+}
+void update_student_grade(std_t *s)
+{
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
+    printf("Enter new grade: ");
+    scanf(" %c", &s->grade);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
+
+    if (s->grade >= 'a' && s->grade <= 'z')
+    {
+        s->grade = s->grade - 'a' + 'A';
+    }
+	else{;}
+}
+void update_person_name(per_t *p)
+{
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
+    printf("Enter new name: ");
+    scan_string(p->name);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
+}
+void update_person_phone(per_t *p)
+{
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
+    printf("Enter new phone: ");
+    scan_string(p->phone);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
+}
+void update_person_age(per_t *p)
+{
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
+    printf("Enter new age: ");
+    scanf("%d", &p->age);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
+}
+void update_person(per_t *p)
+{
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
+    int choice;
+
+    printf("\nUpdate Person:\n");
+    printf("1- Name\n");
+    printf("2- Phone\n");
+    printf("3- Age\n");
+
+    printf("Enter choice: ");
+    scanf("%d", &choice);
+
+    switch (choice)
+    {
+    case 1:
+        update_person_name(p);
+        break;
+
+    case 2:
+        update_person_phone(p);
+        break;
+
+    case 3:
+        update_person_age(p);
+        break;
+
+    default:
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), RED);
+        printf("Invalid choice\n");
+    }
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
+}
+void update_student_father(std_t *s)
+{
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
+    printf("Updating Father Info:\n");
+    update_person(&s->father);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
+}
+void update_student_mother(std_t *s)
+{
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
+    printf("Updating Mother Info:\n");
+    update_person(&s->mother);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
+}
+void update_student_brother(std_t *s)
+{
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
+    int index;
+
+    if (s->number_OfBrothers == 0)
+    {
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), RED);
+        printf("No brothers available\n");
+    }
+	else
+	{
+		printf("Enter brother number (1-%d): ", s->number_OfBrothers);
+		scanf("%d", &index);
+
+		if (index < 1 || index > s->number_OfBrothers)
+		{
+			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), RED);
+			printf("Invalid index\n");
+		}
+		else
+		{
+			update_person(&s->brothers[index - 1]);
+		}
+	}
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
+}

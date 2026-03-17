@@ -39,6 +39,11 @@ void scanOf_stdStruct(std_t* s)
     printf("enter the grade : ");
     fflush(stdin);
     scanf("%c",&(s->grade));
+	if (s->grade >= 'a' && s->grade <= 'z')
+    {
+        s->grade = s->grade - 'a' + 'A';
+    }
+	else{;}
     printf("enter the father information :\n");
     scan_personStruct(&(s->father));
     printf("enter the mother information :\n");
