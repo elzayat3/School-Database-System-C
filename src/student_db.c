@@ -176,3 +176,23 @@ void call_student(int student_number)
 	}
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
 }
+void call_student_by_name(char *name)
+{
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
+    int index;
+
+    search_NameStdStruct(students, student_count, name, &index);
+
+    if (index == -1)
+    {
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), RED);
+        printf("Student not found\n");
+    }
+	else
+	{
+		printf("Calling %s's father at: %s\n",
+           students[index].name,
+           students[index].father.phone);
+	} 
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
+}

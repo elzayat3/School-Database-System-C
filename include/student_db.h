@@ -103,5 +103,16 @@ void sort_students_by_grade(void);
  * @note Prints an error message if the student number is invalid.
  */
 void call_student(int student_number);
+/**
+ * @brief Simulate calling a student's father by name.
+ *
+ * This function searches for a student using their name
+ * and prints the father's phone number if found.
+ *
+ * @param[in] name Name of the student to search for.
+ *
+ * @note Prints an error message if the student is not found.
+ */
+void call_student_by_name(char *name);
 
 #endif
