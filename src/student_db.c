@@ -196,3 +196,58 @@ void call_student_by_name(char *name)
 	} 
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
 }
+void delete_student_by_number(int student_number)
+{
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
+    int i;
+
+    if (student_number < 1 || student_number > student_count)
+    {
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), RED);
+        printf("Invalid student number\n");
+    }
+	else
+	{
+		int index = student_number - 1;
+
+		free(students[index].brothers);
+
+		for (i = index; i < student_count - 1; i++)
+		{
+			students[i] = students[i + 1];
+		}
+
+		student_count--;
+
+		printf("Student deleted successfully\n");
+		
+	}
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
+}
+void delete_student_by_name(char *name)
+{
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
+    int index;
+
+    search_NameStdStruct(students, student_count, name, &index);
+
+    if (index == -1)
+    {
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), RED);
+        printf("Student not found\n");
+    }
+	else
+	{
+		free(students[index].brothers);
+
+		for (int i = index; i < student_count - 1; i++)
+		{
+			students[i] = students[i + 1];
+		}
+
+		student_count--;
+
+		printf("Student deleted successfully\n");
+	}
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
+}

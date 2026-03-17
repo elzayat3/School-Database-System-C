@@ -114,5 +114,26 @@ void call_student(int student_number);
  * @note Prints an error message if the student is not found.
  */
 void call_student_by_name(char *name);
+/**
+ * @brief Delete a student by student number.
+ *
+ * Removes a student from the database and shifts
+ * the remaining students to maintain array order.
+ *
+ * The student number starts from 1 (not 0).
+ *
+ * @param[in] student_number Student number (1-based index).
+ */
+void delete_student_by_number(int student_number);
+
+/**
+ * @brief Delete a student by name.
+ *
+ * Searches for a student by name and removes them
+ * from the database if found.
+ *
+ * @param[in] name Name of the student.
+ */
+void delete_student_by_name(char *name);
 
 #endif
