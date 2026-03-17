@@ -103,5 +103,140 @@ void sort_students_by_grade(void);
  * @note Prints an error message if the student number is invalid.
  */
 void call_student(int student_number);
+/**
+ * @brief Simulate calling a student's father by name.
+ *
+ * This function searches for a student using their name
+ * and prints the father's phone number if found.
+ *
+ * @param[in] name Name of the student to search for.
+ *
+ * @note Prints an error message if the student is not found.
+ */
+void call_student_by_name(char *name);
+/**
+ * @brief Delete a student by student number.
+ *
+ * Removes a student from the database and shifts
+ * the remaining students to maintain array order.
+ *
+ * The student number starts from 1 (not 0).
+ *
+ * @param[in] student_number Student number (1-based index).
+ */
+void delete_student_by_number(int student_number);
+
+/**
+ * @brief Delete a student by name.
+ *
+ * Searches for a student by name and removes them
+ * from the database if found.
+ *
+ * @param[in] name Name of the student.
+ */
+void delete_student_by_name(char *name);
+/**
+ * @brief Update student's name.
+ *
+ * Prompts the user to enter a new name and updates
+ * the student's name field.
+ *
+ * @param[in,out] s Pointer to student structure.
+ */
+void update_student_name(std_t *s);
+
+/**
+ * @brief Update student's age.
+ *
+ * Prompts the user to enter a new age and updates
+ * the student's age field.
+ *
+ * @param[in,out] s Pointer to student structure.
+ */
+void update_student_age(std_t *s);
+
+/**
+ * @brief Update student's grade.
+ *
+ * Prompts the user to enter a new grade and updates
+ * the student's grade field. Converts lowercase
+ * letters to uppercase.
+ *
+ * @param[in,out] s Pointer to student structure.
+ */
+void update_student_grade(std_t *s);
+
+/**
+ * @brief Update person's name.
+ *
+ * Prompts the user to enter a new name and updates
+ * the person's name field.
+ *
+ * @param[in,out] p Pointer to person structure.
+ */
+void update_person_name(per_t *p);
+
+/**
+ * @brief Update person's phone number.
+ *
+ * Prompts the user to enter a new phone number and updates
+ * the person's phone field.
+ *
+ * @param[in,out] p Pointer to person structure.
+ */
+void update_person_phone(per_t *p);
+
+/**
+ * @brief Update person's age.
+ *
+ * Prompts the user to enter a new age and updates
+ * the person's age field.
+ *
+ * @param[in,out] p Pointer to person structure.
+ */
+void update_person_age(per_t *p);
+
+/**
+ * @brief Update a person's data.
+ *
+ * Displays a menu to choose which field to update
+ * (name, phone, or age) and applies the selected update.
+ *
+ * @param[in,out] p Pointer to person structure.
+ */
+void update_person(per_t *p);
+
+/**
+ * @brief Update student's father information.
+ *
+ * Calls the generic person update function for
+ * the student's father.
+ *
+ * @param[in,out] s Pointer to student structure.
+ */
+void update_student_father(std_t *s);
+
+/**
+ * @brief Update student's mother information.
+ *
+ * Calls the generic person update function for
+ * the student's mother.
+ *
+ * @param[in,out] s Pointer to student structure.
+ */
+void update_student_mother(std_t *s);
+
+/**
+ * @brief Update one of the student's brothers.
+ *
+ * Prompts the user to select a brother by index
+ * and allows updating their information.
+ *
+ * @param[in,out] s Pointer to student structure.
+ *
+ * @note Prints an error message if no brothers exist
+ *       or if an invalid index is provided.
+ */
+void update_student_brother(std_t *s);
 
 #endif
