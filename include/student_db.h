@@ -238,5 +238,26 @@ void update_student_mother(std_t *s);
  *       or if an invalid index is provided.
  */
 void update_student_brother(std_t *s);
+/**
+ * @brief Add a new brother to the student.
+ *
+ * Dynamically reallocates memory to append a new brother
+ * and reads the brother's information from user input.
+ *
+ * @param[in,out] s Pointer to student structure.
+ */
+void add_brother(std_t *s);
+
+/**
+ * @brief Delete a brother from the student.
+ *
+ * Removes a brother by index and shifts remaining elements.
+ * Memory is reallocated accordingly.
+ *
+ * @param[in,out] s Pointer to student structure.
+ *
+ * @note Frees memory if no brothers remain.
+ */
+void delete_brother(std_t *s);
 
 #endif

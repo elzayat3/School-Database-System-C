@@ -377,3 +377,75 @@ void update_student_brother(std_t *s)
 	}
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
 }
+void add_brother(std_t *s)
+{
+    per_t *temp;
+
+    temp = (per_t*)realloc(s->brothers, (s->number_OfBrothers + 1) * sizeof(per_t));
+
+    if (temp == NULL)
+    {
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), RED);
+        printf("Memory allocation failed\n");
+    }
+	else
+	{
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
+		s->brothers = temp;
+
+		printf("Enter new brother info:\n");
+		scan_personStruct(&s->brothers[s->number_OfBrothers]);
+
+		s->number_OfBrothers++;
+
+		printf("Brother added successfully\n");
+	}
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
+}
+void delete_brother(std_t *s)
+{
+    int index, i;
+
+    if (s->number_OfBrothers == 0)
+    {
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), RED);
+        printf("No brothers to delete\n");
+    }
+	else
+	{
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
+		printf("Enter brother number (1-%d): ", s->number_OfBrothers);
+		scanf("%d", &index);
+
+		if (index < 1 || index > s->number_OfBrothers)
+		{
+			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), RED);
+			printf("Invalid index\n");
+		}
+		else
+		{
+			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
+			index--; 
+			for (i = index; i < s->number_OfBrothers - 1; i++)
+			{
+				s->brothers[i] = s->brothers[i + 1];
+			}
+
+			s->number_OfBrothers--;
+
+			if (s->number_OfBrothers == 0)
+			{
+				free(s->brothers);
+				s->brothers = NULL;
+			}
+			else
+			{
+				s->brothers = (per_t*)realloc(s->brothers, s->number_OfBrothers * sizeof(per_t));
+			}
+
+			printf("Brother deleted successfully\n");
+			
+		}	
+	}
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);  
+}
