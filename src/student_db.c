@@ -458,3 +458,17 @@ int get_student_count(void)
 {
     return student_count;
 }
+std_t* get_student_by_number(int student_number)
+{
+    if (student_number < 1 || student_number > get_student_count())
+    {
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), RED);
+        printf("Invalid index\n");
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
+        return NULL;
+    }
+    else
+    {
+        return &students[student_number - 1];
+    }
+}

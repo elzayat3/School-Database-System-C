@@ -283,5 +283,22 @@ std_t* get_students(void);
  *         Number of students.
  */
 int get_student_count(void);
+/**
+ * @brief Get a pointer to a student by number.
+ *
+ * This function returns a pointer to the student
+ * corresponding to the given student number.
+ *
+ * The student number is 1-based (starts from 1).
+ *
+ * @param[in] student_number Student number (1-based index).
+ *
+ * @return std_t*
+ * @retval Pointer to the student if the number is valid.
+ * @retval NULL if the student number is invalid.
+ *
+ * @note Prints an error message if the index is invalid.
+ */
+std_t* get_student_by_number(int student_number);
 
 #endif
