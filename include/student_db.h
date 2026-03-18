@@ -259,5 +259,29 @@ void add_brother(std_t *s);
  * @note Frees memory if no brothers remain.
  */
 void delete_brother(std_t *s);
+/**
+ * @brief Get pointer to the students array.
+ *
+ * This function returns a pointer to the internal
+ * student database array.
+ *
+ * @return std_t*
+ *         Pointer to the array of students.
+ *
+ * @note The returned pointer provides direct access
+ *       to the internal storage. Modify with care.
+ */
+std_t* get_students(void);
+
+/**
+ * @brief Get current number of students.
+ *
+ * This function returns the current count of
+ * students stored in the database.
+ *
+ * @return int
+ *         Number of students.
+ */
+int get_student_count(void);
 
 #endif

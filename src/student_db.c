@@ -449,3 +449,12 @@ void delete_brother(std_t *s)
 	}
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);  
 }
+std_t* get_students(void)
+{
+    return students;
+}
+
+int get_student_count(void)
+{
+    return student_count;
+}
