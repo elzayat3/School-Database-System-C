@@ -35,38 +35,41 @@ void save_students_to_file(void)
 }
 void load_students_from_file(void)
 {
-	int student_count =get_student_count();
-	std_t* students = get_students();
+    int student_count;
+    std_t* students = get_students();
+
     FILE *f = fopen("../data/students.dat", "rb");
 
     if (f == NULL)
     {
         printf("No saved data found\n");
     }
-	else
-	{
-		fread(&student_count, sizeof(int), 1, f);
+    else
+    {
+        fread(&student_count, sizeof(int), 1, f);
 
-		for (int i = 0; i < student_count; i++)
-		{
-			fread(&students[i], sizeof(std_t), 1, f);
+        set_student_count(student_count);  
 
-			if (students[i].number_OfBrothers > 0)
-			{
-				students[i].brothers = (per_t*)malloc(
-				students[i].number_OfBrothers * sizeof(per_t));
+        for (int i = 0; i < student_count; i++)
+        {
+            fread(&students[i], sizeof(std_t), 1, f);
 
-				fread(students[i].brothers, sizeof(per_t),
-					students[i].number_OfBrothers, f);
-			}
-			else
-			{
-				students[i].brothers = NULL;
-			}
-		}
+            if (students[i].number_OfBrothers > 0)
+            {
+                students[i].brothers = (per_t*)malloc(
+                    students[i].number_OfBrothers * sizeof(per_t));
 
-		fclose(f);
+                fread(students[i].brothers, sizeof(per_t),
+                      students[i].number_OfBrothers, f);
+            }
+            else
+            {
+                students[i].brothers = NULL;
+            }
+        }
 
-		printf("Data loaded successfully\n");
-	}
+        fclose(f);
+
+        printf("Data loaded successfully\n");
+    }
 }

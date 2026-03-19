@@ -26,7 +26,6 @@ void print_stdStruct(std_t* s)
     {
         printf("he has no brothers \n");
     }
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
 }
 void scanOf_stdStruct(std_t* s)
 {
@@ -58,7 +57,6 @@ void scanOf_stdStruct(std_t* s)
         scan_arrOfpersonStruct(s->brothers,s->number_OfBrothers);
     }
     else {;}
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
 }
 void scan_personStruct(per_t* p)
 {
@@ -69,7 +67,6 @@ void scan_personStruct(per_t* p)
     scan_string(p->phone);
     printf("enter the person age : ");
     scanf("%d",&(p->age));
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
 }
 void print_personStruct(per_t* p)
 {
@@ -79,10 +76,10 @@ void print_personStruct(per_t* p)
     printf("the person phone number is : ");
     print_string(p->phone);
     printf("the person age is : %d \n",p->age);
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
 }
 void print_arrOfstdStruct(std_t* s, int size)
 {
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
 	int i=0;
     for(; i<size; i++)
     {
@@ -93,6 +90,7 @@ void print_arrOfstdStruct(std_t* s, int size)
 }
 void scan_arrOfstdStruct(std_t* s, int size)
 {
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
 	int i=0;
     for(; i<size; i++)
     {
@@ -115,6 +113,7 @@ void search_NameStdStruct(std_t* s, int size, char* str, int* pindex)
 }
 void scan_arrOfpersonStruct(per_t* p, int size)
 {
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
 	int i=0;
     for(; i<size; i++)
     {
@@ -124,6 +123,7 @@ void scan_arrOfpersonStruct(per_t* p, int size)
 }
 void print_arrOfpersonStruct(per_t* p, int size)
 {
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
 	int i=0;
     for(; i<size; i++)
     {

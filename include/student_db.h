@@ -300,5 +300,18 @@ int get_student_count(void);
  * @note Prints an error message if the index is invalid.
  */
 std_t* get_student_by_number(int student_number);
+/**
+ * @brief Set the current number of students in the database.
+ *
+ * Updates the internal counter representing how many
+ * students are currently stored. This is mainly used
+ * during deserialization (loading from file).
+ *
+ * @param[in] count Number of students.
+ *
+ * @warning Setting an incorrect value may lead to
+ *          undefined behavior when accessing the database.
+ */
+void set_student_count(int count);
 
 #endif
