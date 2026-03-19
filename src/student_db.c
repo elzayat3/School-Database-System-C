@@ -25,7 +25,6 @@ void add_student(void)
 
        student_count++;	
 	}
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
 }
 void print_all_students(void)
 {
@@ -41,7 +40,6 @@ void print_all_students(void)
 
         print_arrOfstdStruct(students, student_count);
 	}
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
 }
 void print_student_by_number(int student_number)
 {
@@ -54,11 +52,10 @@ void print_student_by_number(int student_number)
     }
     else
     {
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
         printf("========== Student %d ==========\n", student_number);
         print_stdStruct(&students[student_number - 1]);
     }
-
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
 }
 void print_student_by_name(char *name)
 {
@@ -74,10 +71,10 @@ void print_student_by_name(char *name)
     }
 	else 
 	{
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
 		printf("========== Student %d ==========\n", index+1);
 		print_stdStruct(&students[index]);
 	}
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
 }
 void sort_students_by_age(void)
 {
@@ -178,7 +175,6 @@ void call_student(int student_number)
            students[student_number - 1].name,
            students[student_number - 1].father.phone);
 	}
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
 }
 void call_student_by_name(char *name)
 {
@@ -198,7 +194,6 @@ void call_student_by_name(char *name)
            students[index].name,
            students[index].father.phone);
 	} 
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
 }
 void delete_student_by_number(int student_number)
 {
@@ -226,7 +221,6 @@ void delete_student_by_number(int student_number)
 		printf("Student deleted successfully\n");
 		
 	}
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
 }
 void delete_student_by_name(char *name)
 {
@@ -253,28 +247,24 @@ void delete_student_by_name(char *name)
 
 		printf("Student deleted successfully\n");
 	}
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
 }
 void update_student_name(std_t *s)
 {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
     printf("Enter new name: ");
     scan_string(s->name);
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
 }
 void update_student_age(std_t *s)
 {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
     printf("Enter new age: ");
     scanf("%d", &s->age);
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
 }
 void update_student_grade(std_t *s)
 {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
     printf("Enter new grade: ");
     scanf(" %c", &s->grade);
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
 
     if (s->grade >= 'a' && s->grade <= 'z')
     {
@@ -287,21 +277,18 @@ void update_person_name(per_t *p)
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
     printf("Enter new name: ");
     scan_string(p->name);
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
 }
 void update_person_phone(per_t *p)
 {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
     printf("Enter new phone: ");
     scan_string(p->phone);
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
 }
 void update_person_age(per_t *p)
 {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
     printf("Enter new age: ");
     scanf("%d", &p->age);
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
 }
 void update_person(per_t *p)
 {
@@ -334,21 +321,18 @@ void update_person(per_t *p)
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), RED);
         printf("Invalid choice\n");
     }
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
 }
 void update_student_father(std_t *s)
 {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
     printf("Updating Father Info:\n");
     update_person(&s->father);
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
 }
 void update_student_mother(std_t *s)
 {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), YELLOW);
     printf("Updating Mother Info:\n");
     update_person(&s->mother);
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
 }
 void update_student_brother(std_t *s)
 {
@@ -375,7 +359,6 @@ void update_student_brother(std_t *s)
 			update_person(&s->brothers[index - 1]);
 		}
 	}
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
 }
 void add_brother(std_t *s)
 {
@@ -400,7 +383,6 @@ void add_brother(std_t *s)
 
 		printf("Brother added successfully\n");
 	}
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
 }
 void delete_brother(std_t *s)
 {
@@ -446,6 +428,31 @@ void delete_brother(std_t *s)
 			printf("Brother deleted successfully\n");
 			
 		}	
-	}
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);  
+	}  
+}
+std_t* get_students(void)
+{
+    return students;
+}
+
+int get_student_count(void)
+{
+    return student_count;
+}
+std_t* get_student_by_number(int student_number)
+{
+    if (student_number < 1 || student_number > get_student_count())
+    {
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), RED);
+        printf("Invalid index\n");
+        return NULL;
+    }
+    else
+    {
+        return &students[student_number - 1];
+    }
+}
+void set_student_count(int count)
+{
+    student_count = count;
 }

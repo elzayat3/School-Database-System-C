@@ -259,5 +259,59 @@ void add_brother(std_t *s);
  * @note Frees memory if no brothers remain.
  */
 void delete_brother(std_t *s);
+/**
+ * @brief Get pointer to the students array.
+ *
+ * This function returns a pointer to the internal
+ * student database array.
+ *
+ * @return std_t*
+ *         Pointer to the array of students.
+ *
+ * @note The returned pointer provides direct access
+ *       to the internal storage. Modify with care.
+ */
+std_t* get_students(void);
+
+/**
+ * @brief Get current number of students.
+ *
+ * This function returns the current count of
+ * students stored in the database.
+ *
+ * @return int
+ *         Number of students.
+ */
+int get_student_count(void);
+/**
+ * @brief Get a pointer to a student by number.
+ *
+ * This function returns a pointer to the student
+ * corresponding to the given student number.
+ *
+ * The student number is 1-based (starts from 1).
+ *
+ * @param[in] student_number Student number (1-based index).
+ *
+ * @return std_t*
+ * @retval Pointer to the student if the number is valid.
+ * @retval NULL if the student number is invalid.
+ *
+ * @note Prints an error message if the index is invalid.
+ */
+std_t* get_student_by_number(int student_number);
+/**
+ * @brief Set the current number of students in the database.
+ *
+ * Updates the internal counter representing how many
+ * students are currently stored. This is mainly used
+ * during deserialization (loading from file).
+ *
+ * @param[in] count Number of students.
+ *
+ * @warning Setting an incorrect value may lead to
+ *          undefined behavior when accessing the database.
+ */
+void set_student_count(int count);
 
 #endif

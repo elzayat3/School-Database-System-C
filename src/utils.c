@@ -11,8 +11,6 @@ void print_string(const char *s)
     {
         printf("%c", s[i]);
     }
-
-   SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), NORMAL);
     printf("\n");
 }
 
