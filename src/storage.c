@@ -11,7 +11,7 @@ void save_students_to_file(void)
 {
 	int student_count =get_student_count();
 	std_t* students = get_students();
-    FILE *f = fopen("data/students.dat", "wb");
+    FILE *f = fopen("../data/students.dat", "wb");
 
     if (f == NULL)
     {
@@ -37,7 +37,7 @@ void load_students_from_file(void)
 {
 	int student_count =get_student_count();
 	std_t* students = get_students();
-    FILE *f = fopen("data/students.dat", "rb");
+    FILE *f = fopen("../data/students.dat", "rb");
 
     if (f == NULL)
     {
